@@ -15,5 +15,10 @@ spec:
         app: wordpress-group
     spec:
       containers:
-      - image: wordpress
-        name: wordpress
+        - image: wordpress:beta-php8.3-apache
+          name: wordpress
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
